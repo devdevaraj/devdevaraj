@@ -13,7 +13,7 @@ C_PIPE="\e[90m"           # Pipes
 C_GREEN="\e[38;5;40m"     # Green for ++
 C_RED="\e[38;5;196m"      # Red for --
 
-MAX_WIDTH=100
+MAX_WIDTH=90
 # Read DOB from .env file if it exists
 if [ -f "$(dirname "$0")/.env" ]; then
     source "$(dirname "$0")/.env"
@@ -132,12 +132,16 @@ generate_profile() {
 mapfile -t ASCII_LINES < "$(dirname "$0")/me-ascii.txt"
 mapfile -t PROFILE_LINES < <(generate_profile)
 
-ASCII_WIDTH=62
+ASCII_WIDTH=52
 max_lines=$(( ${#ASCII_LINES[@]} > ${#PROFILE_LINES[@]} ? ${#ASCII_LINES[@]} : ${#PROFILE_LINES[@]} ))
+
+echo -e "\n\n"
 
 for ((i=0; i<max_lines; i++)); do
     ascii_line="${ASCII_LINES[i]:-}"
     printf -v padded_ascii "%-${ASCII_WIDTH}s" "$ascii_line"
     profile_line="${PROFILE_LINES[i]:-}"
-    echo -e "${padded_ascii}   ${profile_line}"
+    echo -e "     ${padded_ascii}   ${profile_line}"
 done
+
+echo -e "\n\n"

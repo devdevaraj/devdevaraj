@@ -132,7 +132,7 @@ generate_profile() {
 mapfile -t ASCII_LINES < "$(dirname "$0")/me-ascii.txt"
 mapfile -t PROFILE_LINES < <(generate_profile)
 
-ASCII_WIDTH=52
+ASCII_WIDTH=51
 max_lines=$(( ${#ASCII_LINES[@]} > ${#PROFILE_LINES[@]} ? ${#ASCII_LINES[@]} : ${#PROFILE_LINES[@]} ))
 
 echo -e "\n\n"

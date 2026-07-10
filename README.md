@@ -1,4 +1,4 @@
-![Stats](https://github-readme-stats.vercel.app/api?username=YOUR_USERNAME)
+![Stats](https://github-readme-stats.vercel.app/api?username=devdevaraj)
 
 # Hi 👋 I'm Devaraj
 
